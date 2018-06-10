@@ -1,24 +1,16 @@
-# README
+# railbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このrailbookは、Ruby on Rails 5 & GitHub実践入門の勉強用として
+作成しました。
 
-Things you may want to cover:
+このアプリケーションでは、
 
-* Ruby version
+- Webサービスとしては展開しない
 
-* System dependencies
+- あくまでも勉強用
 
-* Configuration
+という条件でのみ使用します。
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+クローンコマンドは、
+- 'git clone git@github.com:KuniiSotaro/railbook.git'
+を打ち込むことで可能です。
