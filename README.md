@@ -12,5 +12,11 @@
 という条件でのみ使用します。
 
 クローンコマンドは、
-- 'git clone git@github.com:KuniiSotaro/railbook.git'
+`git clone git@github.com:KuniiSotaro/railbook.git`
 を打ち込むことで可能です。
+
+### README.mdについて
+
+README.mdは、markdown記法の練習も兼ねて、
+**update_readme**
+というbranchで更新していきます。
