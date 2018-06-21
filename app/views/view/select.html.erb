@@ -1,0 +1,6 @@
+<%= form_for(@book) do |f| %>
+    <%= f.select :publish, ['技術評論社', 'あ社', '日経Bp'], { include_blank: '選択してください' }, class: 'pub' %><br />
+    <%= f.select :publish, {'技術評論社' => 1, 'あ社' => 2, '日経Bp' => 3 } %><br />
+    <%= f.select(:publish, [['技術評論社', 1], ['あ社', 2], ['日経Bp', 3]]) %><br />
+    <%= f.select :publish, ['技術評論社', 'あ社', '日経Bp'], { include_blank: '選択してください' }, multiple: true %>
+<% end %>
