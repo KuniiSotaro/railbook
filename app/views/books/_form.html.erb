@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :isbn %>
+    <%= form.label :isbn, 'ISBNコード' %>
     <%= form.text_field :isbn, id: :book_isbn %>
   </div>
 
@@ -42,6 +42,16 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '保存',data: { comfirm: '保存しても良いですか？', disabled_with: '処理中…'} %>
   </div>
+
+  <%= form_for(book) do |f| %>
+    <div class="field">
+        <%= f.label :isbn, 'ISBNコード' %>
+        <%= f.text_field :isbn %>
+    </div>
+    <div class="actions">
+        <%= f.submit '保存', data: { comfirm: '保存しても良いですか？', disabled_with: '処理中…'} %>
+    </div>
+  <% end %>
 <% end %>

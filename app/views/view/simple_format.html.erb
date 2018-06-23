@@ -1,0 +1,12 @@
+<%
+article = <<EOL
+WINGSニュース特別号
+
+こんにちは。
+WINGSプロジェクトの山田です。
+今日は
+オススメの書籍の特集をお送りします。
+<script>alert('Happy Rails!!');</script>
+EOL
+%>
+<%= simple_format(article, {class: :article}, { sanitize: false, wrapper_tag: 'blockquote'}) %>
