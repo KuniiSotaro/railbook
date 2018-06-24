@@ -30,4 +30,12 @@ Rails.application.routes.draw do
   get 'view/excerpt'
   get 'view/list'
   get 'view/highlight'
+  get 'view/sanitize'
+  get 'view/format'
+  get 'view/number_to'
+  get 'view/datetime'
+  get 'view/link'
+  get 'view/urlfor'
+  get 'view/new'
+  get 'members/login'
 end
