@@ -128,7 +128,7 @@
    必ず`upstream branch`を指定しなければならない <br>
    →`git push -u origin master`：`upstream branch`の指定。`-u`は`--set-upstream`の省略コマンド
 
-  以下、ローカルリポジトリとリモートリポジトリの概略図
+  **以下、ローカルリポジトリとリモートリポジトリの概略図**
   ![remote&local_repo](image/repo.png)
 
 #### リモートリポジトリへの送信
