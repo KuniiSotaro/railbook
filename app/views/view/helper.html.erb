@@ -1,0 +1,13 @@
+<% provide :title, 'helperの例' %>
+<% current = Time.now %>
+<%= format_datetime(current, :date)%>
+<br>
+<br>
+<% @books = Book.all %>
+<%= list_tag @books, 'title' %>
+<br>
+<br>
+<%= blockquote_tag('http://www.wings.msn.to', 'サーバーサイド技術の学び舎', class: 'quote') do %>
+あ <br />
+<%= image_tag('http://www.wings.msn.to/image/wings.jpg')%>
+<% end %>

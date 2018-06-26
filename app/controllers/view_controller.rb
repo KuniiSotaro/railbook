@@ -61,4 +61,15 @@ class ViewController < ApplicationController
     def list
         @books = Book.all
     end
+
+    def multi
+        # render layout: 'layout'
+    end
+
+    def relation
+    end
+    def download
+    end
+    def quest
+    end
 end
