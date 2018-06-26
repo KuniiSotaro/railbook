@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) || 'Rails入門'%></title>
+    <title><%#= yield(:title) || 'Rails入門'%>railbook</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,7 +12,7 @@
   </head>
 
   <body>
-      <%= yield :extended_menu %>
     <%= yield %>
+    <%#= content_for?(:content) ? yield(:content) :yield %>
   </body>
 </html>

@@ -48,4 +48,9 @@ Rails.application.routes.draw do
   get 'view/content_tag'
   get 'view/helper'
   get 'view/multi'
+  get 'view/nest'
+  get 'view/partial_basic'
+  get 'view/partial_param'
+  get 'view/partial_col'
+  get 'view/partial_spacer'
 end
