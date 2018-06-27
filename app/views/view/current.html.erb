@@ -1,0 +1,11 @@
+<%= link_to_unless_current '一覧へ', action: :current %>
+<%= link_to_unless_current '詳細へ', action: :detail %>
+<br>
+<br>
+<br>
+<br>
+<%= mail_to 'example@example.com' %>
+<br>
+<%= mail_to 'example@example.com', 'お問い合わせはこちら' %>
+<br>
+<%= mail_to 'example@example.com', nil, subject: '問い合わせ', cc: 'example@example.com'%>

@@ -1,0 +1,9 @@
+<%#　@current = capture do %>
+<!-- ただいまの時刻は<%#= Time.now %>です。 -->
+<%# end %>
+<%#= @current %>
+
+<% @time = capture do %>
+現在の時刻は<%= Time.now %>
+<% end %>
+<%= @time %>

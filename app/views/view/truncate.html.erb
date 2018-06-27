@@ -1,0 +1,5 @@
+<% msg = '<strong>Rails</strong>まず、試験片の長さ、幅をノギスで、厚さをマイクロメーターで3回測定した。
+これらの値の平均値を測定値として用いた。' %>
+<%= truncate(msg, length: 50) %>
+<%= truncate(msg, length:50, separator: '。') %>
+<%= truncate(msg, length: 50, omission: '…後略…') %>
