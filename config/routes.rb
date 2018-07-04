@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   get 'hello/view'
   get 'hello/list'
   get 'record/find'
+  get 'record/find_by'
+  get 'record/where'
+  get 'record/keyword'
+  post 'record/ph1'
+  get 'record/not(/:id)', to: 'record#not'
+  get 'record/where_or'
 end
