@@ -34,4 +34,40 @@ class RecordController < ApplicationController
         @books = Book.where(publish: '技術評論社').or(Book.where('price > 2000'))
         render 'hello/list'
     end
+
+    def order
+        @books = Book.where(publish: '技術評論社').order(published: :desc, price: :asc)
+        render 'hello/list'
+    end
+
+    def reorder
+        @books = Book.order(:publish).reorder(nil)
+        render 'books/index'
+    end
+
+    def select
+        @books = Book.where('price >= 2000').select(:title, :price)
+        render 'hello/list'
+    end
+
+    def select2
+        @pubs = Book.select(:publish).distinct.order(:publish)
+    end
+
+    def offset
+        @books = Book.order(published: :desc).limit(3).offset(4)
+        render 'hello/list'
+    end
+
+    def page
+        page_size = 3 #ページ当たりの表示件数
+        page_num = params[:id] == nil? 0 : params[:id].to_i - 1 #現在のページ数
+        @books = Book.order(published: :desc).limit(page_size).offset(page_size * page_num)
+        render 'hello/list'
+    end
+
+    def last
+        @books = Book.order(published: :desc).last
+        render 'hello/list'
+    end
 end

@@ -15,4 +15,11 @@ Rails.application.routes.draw do
   post 'record/ph1'
   get 'record/not(/:id)', to: 'record#not'
   get 'record/where_or'
+  get 'record/order'
+  get 'record/reorder'
+  get 'record/select'
+  get 'record/select2'
+  get 'record/offset'
+  get 'record/page(/:id)', to: 'record#page'
+  get 'record/last'
 end
