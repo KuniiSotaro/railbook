@@ -8,4 +8,13 @@ Rails.application.routes.draw do
   get 'hello/index', to: 'hello#index'
   get 'hello/view'
   get 'hello/list'
+  get 'record/last'
+  get 'record/groupby'
+  get 'record/havingby'
+  get 'record/where2'
+  get 'record/unscope'
+  get 'record/none(/:id)', to: 'record#none'
+  get 'record/pluck'
+  get 'record/exists'
+  get 'record/scope'
 end
