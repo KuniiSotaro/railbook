@@ -17,4 +17,11 @@ Rails.application.routes.draw do
   get 'record/pluck'
   get 'record/exists'
   get 'record/scope'
+  get 'record/def_scope'
+  get 'record/count'
+  get 'record/average'
+  get 'record/groupby'
+  get 'record/update_all'
+  get 'record/update_all2'
+  delete 'record/destroy_all'
 end

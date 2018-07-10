@@ -1,4 +1,5 @@
 class RecordController < ApplicationController
+    # レコードの検索
     def last
         @book = Book.order(published: :desc).last
         render 'books/show'
@@ -51,5 +52,40 @@ class RecordController < ApplicationController
     def scope
         @books = Book.gihyo.top10
         render 'hello/list'
+    end
+
+    def def_scope
+        render plain: Review.all.inspect
+    end
+
+    def count
+        cnt = Book.where(publish: '技術評論社').count
+        render plain: "#{cnt}件です。"
+    end
+
+    def average
+        price = Book.where(publish: '技術評論社').average(:price)
+        render plain: "平均価格は#{price}円です。"
+    end
+
+    def literal_sql
+        @books = Book.find_by_sql(['SELECT publish, AVG(price) AS avg_price FROM "books" GROUP BY publish HAVING AVG(price) >= ?', 2500])
+        render 'record/groupby'
+    end
+
+    # レコードの登録・更新・削除
+    def update_all
+        cnt = Book.where(publish: '技術評論社').update_all(publish: 'Gihyo')
+        render plain: "#{cnt}件のデータを更新しました。"
+    end
+
+    def update_all2
+        cnt = Book.order(:published).limit(5).update_all('price = price * 0.8')
+        render plain: "#{cnt}件のデータを更新しました。"
+    end
+
+    def destroy_all
+        Book.where.not(publish: '技術評論社').destroy_all
+        render plain: '削除完了'
     end
 end
