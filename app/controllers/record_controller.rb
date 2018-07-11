@@ -88,4 +88,25 @@ class RecordController < ApplicationController
         Book.where.not(publish: '技術評論社').destroy_all
         render plain: '削除完了'
     end
+
+    def transact
+        Book.transaction do
+            b1 = Book.new({isbn: '978-4-7741-5067-3', title: 'Rubyポケットリファレンス',
+                price: 2580, publish: '技術評論社', published:'2017-04-17'})
+            b1.save!
+            raise '例外発生：処理はキャンセルされました。'
+            b2 = Book.new({isbn: '978-4-7741-5067-5', title: 'Tomcatポケットリファレンス',
+                price: 2500, publish: '技術評論社', published: '2017-05-10'})
+            b2.save!
+        end
+        render plain: 'トランザクションは成功しました。'
+    rescue => e
+        render plain: e.message
+    end
+
+    def enum_rec
+        @review = Review.find(1)
+        @review.published!
+        render plain: 'ステータス：' + @review.status
+    end
 end
