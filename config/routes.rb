@@ -25,4 +25,11 @@ Rails.application.routes.draw do
   get 'record/update_all'
   get 'record/update_all2'
   delete 'record/destroy_all'
+  get 'record/keywd'
+  get 'record/belongs'
+  get 'record/hasmany'
+  get 'record/hasone'
+  get 'record/has_and_belongs'
+  get 'record/has_many_through'
+  get 'record/assoc_includes'
 end

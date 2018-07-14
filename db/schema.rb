@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20180711134513) do
     t.string "email"
     t.boolean "dm"
     t.string "roles"
-    t.integer "reviews_count"
+    t.integer "reviews_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

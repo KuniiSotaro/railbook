@@ -109,4 +109,53 @@ class RecordController < ApplicationController
         @review.published!
         render plain: 'ステータス：' + @review.status
     end
+
+    def keywd
+        @search = SearchKeyword.new
+    end
+
+    def keywd_process
+        @search = SearchKeyword.new(params.require(:search_keyword).permit(:keyword))
+        if @search.valid?
+            render plain: @search.keyword
+        else
+            render plain: @search.errors.full_messages[0]
+        end
+    end
+
+    def belongs
+        @review = Review.find(3)
+    end
+
+    def hasmany
+        @book = Book.find_by(isbn: '978-4-7741-8411-1')
+    end
+
+    def hasone
+        @user = User.find_by(username: 'yyamada')
+    end
+
+    def has_and_belongs
+        @book = Book.find_by(isbn: '978-4-7980-4803-1')
+    end
+
+    def has_many_through
+        @user = User.find_by(username: 'isatou')
+    end
+
+    def memorize
+        @book = Book.find(1)
+        # 書籍情報に関するメモを登録
+        @memo = @book.memos.build({ body: 'あとで買う' })
+        if @memo.save
+            render plain: 'メモを作成しました。'
+        else
+            render plain: @memo.errors.full_messages[0]
+        end
+    end
+
+    def assoc_includes
+        @books = Book.includes(:reviews).all
+    end
+
 end
