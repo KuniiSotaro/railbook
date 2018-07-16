@@ -25,6 +25,8 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    # render plain: params[:book].inspect
+    # return
 
     respond_to do |format|
       if @book.save
