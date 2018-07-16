@@ -46,4 +46,54 @@ class CtrlController < ApplicationController
             render plain: @author.errors.full_messages[0]
         end
     end
+
+    def html_plain
+        render html: '<div style="color: Red;">今日はいい天気ですね。</div>'.html_safe
+        # render inline: 'リクエスト情報：<%= debug request.haders %>'
+    end
+
+    def log
+        logger.unknown('unknown')
+        logger.fatal('fatal')
+        logger.error('error')
+        logger.warn('warn')
+        logger.info('info')
+        logger.debug('debug')
+        render plain: 'ログはコンソール、またはログファイルから確認してください。'
+    end
+
+    def get_xml
+        @books = Book.all
+        render xml: @books
+    end
+
+    def get_json
+        @books = Book.all
+        render json: @books
+    end
+
+    def download
+        @books = Book.all
+    end
+
+    def cookie
+        # テンプレート変数@emailにクッキー値をセット
+        @email = cookies[:email]
+    end
+
+    def cookie_rec
+        # クッキー:emailをセット(有効期限は3ヶ月後)
+        cookies[:email] = { value: params[:email],
+            expires: 3.months.from_now, http_only: true }
+        render plain: 'クッキーを保存しました。'
+    end
+
+    def session_show
+        @email = session[:email]
+    end
+
+    def session_rec
+        session[:email] = params[:email]
+        render plain: 'セッションを保存しました。'
+    end
 end

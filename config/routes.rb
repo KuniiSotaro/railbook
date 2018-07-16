@@ -16,4 +16,13 @@ Rails.application.routes.draw do
   post 'ctrl/upload', to: 'ctrl#upload_process'
   get 'ctrl/updb(/:id)', to: 'ctrl#updb'
   patch 'ctrl/updb_process(/:id)', to: 'ctrl#updb_process'
+  get 'ctrl/html_plain'
+  get 'ctrl/log'
+  get 'ctrl/get_xml'
+  get 'ctrl/get_json'
+  get 'ctrl/download'
+  get 'ctrl/cookie'
+  post 'ctrl/cookie_rec'
+  get 'ctrl/session_show', to: 'ctrl#session_show'
+  post 'ctrl/session_rec'
 end
