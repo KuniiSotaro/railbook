@@ -1,4 +1,14 @@
 class CtrlController < ApplicationController
+    # before/afterフィルターの登録
+    # before_action :start_logger, only: [:index, :index2]
+    # after_action :end_logger, except: :index
+
+    # aroundフィルターの登録
+    # around_action :around_logger
+
+    # indexアクションに対してbeforeフィルターauthを登録
+    before_action :auth, only: :index
+
     def para
         render plain: 'idパラメーター：' + params[:id]
     end
@@ -96,4 +106,38 @@ class CtrlController < ApplicationController
         session[:email] = params[:email]
         render plain: 'セッションを保存しました。'
     end
+
+    # フィルターの動作を確認するためのindexアクションを定義
+    def index
+        sleep 3
+        render plain: 'indexアクションが実行されました。'
+    end
+
+    private
+        # 開始時刻をログに記録
+        # def start_logger
+        #     logger.debug('[Start]' + Time.now.to_s)
+        # end
+
+        # 終了時刻をログに記録
+        # def end_logger
+        #     logger.debug('[Finish]' + Time.now.to_s)
+        # end
+
+        # 開始/終了時刻をログに記録
+        # def around_logger
+        #     logger.debug('[Start]' + Time.now.to_s)
+        #     yield #アクションを実行
+        #     logger.debug('[Finish]' + Time.now.to_s)
+        # end
+
+        def auth
+            # 認証に利用するユーザ名/パスワード
+            name = 'yyamada'
+            passwd = '8cb2237d0679ca88db6464eac60da96345513964'
+            # 基本認証を実行(入力されたユーザー名/パスワードをname/passwdと比較)
+            authenticate_or_request_with_http_basic('Railsbook') do |n, p|
+                n == name && Digest::SHA1.hexdigest(p) == passwd
+            end
+        end
 end
