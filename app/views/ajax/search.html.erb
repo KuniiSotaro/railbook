@@ -1,0 +1,6 @@
+<%= form_tag({action: :result}, id: :ajax_form, remote: true) do %>
+    <%= select_tag(:publish, options_from_collection_for_select(@books, :publish, :publish, '技術評論社'))%>
+    <%= submit_tag '検索' %>
+<% end %>
+<!-- 結果を反映させるための領域を確保 -->
+<ul id="result"></ul>

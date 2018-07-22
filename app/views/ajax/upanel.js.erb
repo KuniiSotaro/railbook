@@ -1,0 +1,9 @@
+$("#result").html(
+    "<%= escape_javascript('現在時刻：' + @time) %>"
+);
+
+$(function() {
+    $('#result').click(function() {
+        $(this).css("color", "red")
+    });
+});
