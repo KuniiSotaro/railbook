@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'hello/view'
   get 'hello/list'
   get 'extra/sendmail'
+  get 'extra/show'
 end

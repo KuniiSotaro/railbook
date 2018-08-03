@@ -1,0 +1,3 @@
+<% @file = File.open("doc/100.setting/github/git.md") %>
+<% @file_detail = @file.read %>
+<%= markdown(@file_detail).html_safe %>
