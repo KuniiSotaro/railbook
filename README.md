@@ -15,8 +15,8 @@
 `git clone git@github.com:KuniiSotaro/railbook.git`
 を打ち込むことで可能です。
 
-### README.mdについて
+## README.mdについて
 
 README.mdは、markdown記法の練習も兼ねて、
-**update_readme**
+***update_readme***
 というbranchで更新していきます。

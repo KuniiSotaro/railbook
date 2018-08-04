@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612125822) do
+ActiveRecord::Schema.define(version: 20180711134513) do
 
   create_table "authors", force: :cascade do |t|
     t.integer "user_id"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20180612125822) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "members", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.integer "lock_version", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "memos", force: :cascade do |t|
     t.string "memoable_type"
     t.integer "memoable_id"
@@ -61,7 +69,7 @@ ActiveRecord::Schema.define(version: 20180612125822) do
   create_table "reviews", force: :cascade do |t|
     t.integer "book_id"
     t.integer "user_id"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -75,7 +83,7 @@ ActiveRecord::Schema.define(version: 20180612125822) do
     t.string "email"
     t.boolean "dm"
     t.string "roles"
-    t.integer "reviews_count"
+    t.integer "reviews_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
